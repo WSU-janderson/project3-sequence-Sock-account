@@ -6,11 +6,11 @@
 
 After you accept the GitHub Classroom assignment, you need to clone the repository onto your computer. If you know how to clone a repository, you can skip this step. If on Windows, I recommend browsing in the File Explorer to the directory you wish to clone the repository into. If you right-click, you should see an option to `Open Git Bash here`.
 
-![Open Git Bash here](img/openGitBash.png)
+![Open Git Bash here](cmake-build-debug/img/openGitBash.png)
 
 That will open a terminal with the working directory the same as the one you were in. Go to your repoository in a web browser, and click the `<> Code` drop-down. 
 
-![Code drop-down](img/copyRepoLink.png)
+![Code drop-down](cmake-build-debug/img/copyRepoLink.png)
 
 You will see the URL for your repository, and if you click on the squares to the right of that, it will copy the link to your clipboard. Back in Git Bash, type `git clone `, then press `Shift-Insert` to paste. You can also right-click to paste. Press enter, and you may be asked to log in to GitHub. If successful, you now have the repository cloned.
 
@@ -22,12 +22,12 @@ menu to open the `Open File or Project` window.
 
 Navigate to where the project is saved, and open the _directory_, not an individual file. You can select the directory,
 then click `Select Folder`
-![Open Project](img/openProject.png)
+![Open Project](cmake-build-debug/img/openProject.png)
 
 CLion will open, and you should see a window titled `Open Project Wizard`. If there are no errors on this screen, click
 OK. That window will look similar to this:
 
-![Open Project Wizard](img/wizard.png)
+![Open Project Wizard](cmake-build-debug/img/wizard.png)
 
 The next thing you should do is test you can build and run the project. In the upper-right of CLion, next to the dropdown
 with `Debug`, you should see a drop down to the right that says `SequenceDebug`. If not, open the menu and select
@@ -35,7 +35,7 @@ with `Debug`, you should see a drop down to the right that says `SequenceDebug`.
 or debug) the program with the triangle (or bug) icon. If you see `Your project is ready to go!` output, then your
 project is ready to go!
 
-![Executable Selector](img/exeSelector.png)
+![Executable Selector](cmake-build-debug/img/exeSelector.png)
 
 ### `SequenceDebug.cpp`
 
@@ -62,8 +62,8 @@ Once you can build and run the starter code, you can now actually start the proj
 
 You should regularly commit your work, and I recommend pushing often so your work is backed up. In CLion, you should at least be able to commit. For some reason, most students cannot push their commits directly from CLion. To commit, you will click on the Commit pane to the left of the project pane. Check the files you wish to commit, then type a message and click `Commit`.
 
-![commit pane](img/commitPane.png)
+![commit pane](cmake-build-debug/img/commitPane.png)
 
 To push, at the bottom left, click on the Terminal pane. From the drop-down, select `Git Bash` to open a new bash shell. Type `git push`, and your code should now appear on the remote branch.
 
-![terminal git bash](img/terminalGitBash.png)
+![terminal git bash](cmake-build-debug/img/terminalGitBash.png)
