@@ -5,6 +5,10 @@
 using namespace std;
 
 
-Sequence::Sequence() : Sequence(size_t sz = 0) {
+int Sec() {
+    LinkedList list;
+    list.push("Operator");
 
+    std::cout << list << std::endl;
+    return 0;
 }

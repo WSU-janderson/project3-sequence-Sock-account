@@ -7,7 +7,8 @@
  * SequenceDebug from the drop-down menu next to the Build (hammer icon) if it is on SequenceTestHarness
  */
 #include <iostream>
-
+#include "Sequence.h"
+#include "Sequence.cpp"
 using namespace std;
 
 int main() {
