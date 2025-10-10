@@ -4,22 +4,21 @@
 #include <vector>
 #include <string>
 #include <ostream>
-class Sequence{
-private:
+class Node{
+public:
     std::string value;
-    Sequence *next;
-    public:
-    Sequence(std::string value, Sequence *next = nullptr){
+    Node *next;
+    Node(std::string value, Node *next = nullptr){
         this->value = value;
         this->next = next;
     }
     std::string getValue(){return this->value;}
-    Sequence * getNext() {return this->next;}
-    void setNext(Sequence *next) {this->next = next;}
+    Node * getNext() {return this->next;}
+    void setNext(Node *next) {this->next = next;}
 };
 class LinkedList {
 private:
-    Sequence *head;
+    Node *head;
     public:
     // Constructor
     LinkedList() {
@@ -30,8 +29,8 @@ private:
         while (this-> head != nullptr) pop();
     }
     // Insertion Operator <<
-    friend std::ostream & operator<<(std::ostream & os, const LinkedList & rhs) {
-        for (Sequence *curSequence = rhs.head; curSequence != nullptr; curSequence = curSequence->getNext()) {
+    friend std::ostream & operator <<(std::ostream & os, const LinkedList & rhs) {
+        for (Node *curSequence = rhs.head; curSequence != nullptr; curSequence = curSequence->getNext()) {
            os << curSequence->getValue();
             if (curSequence->getNext() != nullptr) os << " ";
         }
@@ -40,13 +39,13 @@ private:
 
     // Add Links (push)
     void push (std::string value) {
-        new Sequence(value, this->head);
+        new Node(value, this->head);
     }
     // Remove Links (pop)
     int pop() {
         int value;
         if (this->head != nullptr) {
-        Sequence* temp = head;
+        Node* temp = head;
             this->head = this->head->getNext();
             delete temp;
         }else {

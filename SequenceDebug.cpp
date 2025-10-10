@@ -8,10 +8,23 @@
  */
 #include <iostream>
 #include "Sequence.h"
-#include "Sequence.cpp"
+
 using namespace std;
 
 int main() {
+    Node* head = new Node("Test");
+    head->next = new Node("Test2");
+    head->next->next = new Node("Test3");
+    head->next->next->next = new Node("Test4");
+
+    while (head != nullptr) {
+        cout << head->value << endl;
+        if (head->next)
+            cout<<"->";
+
+        head = head->next;
+    }
+
     cout << "Your project is ready to go!" << endl;
 
     return 0;
