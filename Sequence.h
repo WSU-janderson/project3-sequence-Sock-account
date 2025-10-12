@@ -1,62 +1,71 @@
 #ifndef LINKEDLIST_SEQUENCE_H
 #define LINKEDLIST_SEQUENCE_H
-#include <stdexcept>
 #include <vector>
 #include <string>
 #include <ostream>
-class Node{
-public:
-    std::string value;
-    Node *next;
-    Node(std::string value, Node *next = nullptr){
-        this->value = value;
-        this->next = next;
-    }
-    std::string getValue(){return this->value;}
-    Node * getNext() {return this->next;}
-    void setNext(Node *next) {this->next = next;}
-};
-class LinkedList {
+
+class Sequence {
+//These are the private member values
 private:
-    Node *head;
-    public:
-    // Constructor
-    LinkedList() {
-        this->head = nullptr;
-    }
-    // Destructor
-    ~LinkedList() {
-        while (this-> head != nullptr) pop();
-    }
-    // Insertion Operator <<
-    friend std::ostream & operator <<(std::ostream & os, const LinkedList & rhs) {
-        for (Node *curSequence = rhs.head; curSequence != nullptr; curSequence = curSequence->getNext()) {
-           os << curSequence->getValue();
-            if (curSequence->getNext() != nullptr) os << " ";
-        }
+    size_t sz;
+    Sequence* prev;
+    Sequence* next;
+    size_t elts;
+public:
+    Sequence(size_t sz, Sequence* prev, Sequence* next, size_t elts);
 
-    }
+    //explicit Sequence(size_t sz);
 
-    // Add Links (push)
-    void push (std::string value) {
-        new Node(value, this->head);
-    }
-    // Remove Links (pop)
-    int pop() {
-        int value;
-        if (this->head != nullptr) {
-        Node* temp = head;
-            this->head = this->head->getNext();
-            delete temp;
-        }else {
-            throw std::range_error("List is empty!");
-        }
 
-        return value;
-    }
-    // Find Length
-    // Find a value
+Sequence(const Sequence& s);
 
+~Sequence();
+
+Sequence& operator=(const Sequence& s);
+
+std::string& operator[](size_t position);
+
+void push_back(std::string item);
+
+void pop_back();
+
+void insert(size_t position, std::string item);
+
+std::string front() const;
+
+std::string back() const;
+
+bool empty() const;
+
+size_t size() const;
+
+
+void clear();
+
+void erase(size_t position);
+
+void erase(size_t position, size_t count);
+
+friend std::ostream& operator<<(std::ostream& os, const Sequence& s);
+
+
+
+    class SequenceNode {
+    public: // to make it easier, we can make the data members public so we don't need
+        // getters and setters
+        SequenceNode* next; // pointer to next Node. If node is the tail, next is
+        // nullptr
+        SequenceNode* prev; // pointer to previous Node. If node is the head, prev is
+        // nullptr
+        std::string item; // the element being stored in the node
+        //default constructor, ensure next and prev are nullptr
+        SequenceNode() : next(nullptr), prev(nullptr)
+        {}
+        /// parameterized constructor, next and prev are set to nullptr and the
+        /// node's element is set to the given value
+        SequenceNode(std::string item) : next(nullptr), prev(nullptr), item(item)
+        {}
+    };
 };
 
 
