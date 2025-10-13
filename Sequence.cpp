@@ -97,7 +97,11 @@ void Sequence::pop_back() {
 // sequence
 void Sequence::insert(size_t position, std::string item) {
 
+    if (position < sz ) {
+        throw std::exception();
+    }
     SequenceNode *newN = new SequenceNode(item);
+
     if (position == 0) {
         newN->next = head;
         head->prev = newN;
@@ -128,20 +132,48 @@ void Sequence::insert(size_t position, std::string item) {
 // Returns the first element in the sequence. If the sequence is empty, throw an
 // exception.
 std::string Sequence::front() const {
+    SequenceNode *temp = new SequenceNode;
+    temp->item = head->item;
+    if (temp->item == "") {
+        throw std::exception();
+    }
+    return temp->item;
 
 }
 // Return the last element in the sequence. If the sequence is empty, throw an
 // exception.
 std::string Sequence::back() const {
-
+    SequenceNode *temp = new SequenceNode;
+    temp->item =tail->item;
+    if (temp->item == "") {
+        throw std::exception();
+    }
+    return temp->item;
 }
 // Return true if the sequence has no elements, otherwise false.
 bool Sequence::empty() const {
-
+    if (head->item == "" && head->next == tail && tail->item == "") {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 // Return the number of elements in the sequence.
 size_t Sequence::size() const {
+    int count;
+    SequenceNode *temp = new SequenceNode;
+    for (int i = 0; i < sz; i++) {
+        temp->item = head->item;
+        if (temp->item != "") {
+            count++;
+        }
+        temp = head->next;
+        head->next = temp->next;
 
+
+
+    }
 }
 // All items in the sequence are deleted and the memory associated with the
 // sequence is released, resetting the sequence to an empty state that can have
