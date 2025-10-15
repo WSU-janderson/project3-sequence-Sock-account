@@ -179,12 +179,22 @@ size_t Sequence::size() const {
 // sequence is released, resetting the sequence to an empty state that can have
 // items re-inserted.
 void Sequence::clear() {
+    //SequenceNode *temp = new SequenceNode;
+
+    for (int i = 0; i < sz; i++) {
+        push_back("");
+    }
 
 }
 // The item at position is removed from the sequence, and the memory
 // is released. If called with an invalid position throws an exception.
 void Sequence::erase(size_t position) {
+ if (position >= sz) {
+     throw std::exception();
+ }
+    if (position < sz && position >= 0) {
 
+    }
 }
 // The items in the sequence at ( position ... (position + count - 1) ) are
 // deleted and their memory released. If called with invalid position and/or
